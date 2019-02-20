@@ -49,7 +49,7 @@ accountms(filePath)
 Example
 -------
 
-```j
+```js
 const fs = require('fs');
 const accountms = require('accountpicture-ms-extractor');
 
