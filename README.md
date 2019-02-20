@@ -57,10 +57,10 @@ accountms(file)
       .then((extracted) => {
       
         //write to file
-        fs.writeFile("small.jpeg"),extracted.small,(err) => {
+        fs.writeFile("small.jpeg",extracted.small,(err) => {
           if (err) throw err;  
         });
-        fs.writeFile("big.jpeg"),extracted.big,(err) => {
+        fs.writeFile("big.jpeg",extracted.big,(err) => {
           if (err) throw err;  
         });
         
@@ -69,7 +69,7 @@ accountms(file)
           <img src="data:image/jpeg;charset=utf-8;base64,${extracted.small.toString('base64')}" alt="small 96*96" />
           <img src="data:image/jpeg;charset=utf-8;base64,${extracted.big.toString('base64')}" alt="big original-file-resolution-fit-to-square" />`;
         
-        fs.writeFile("data64.html"),html,'utf8',(err) => {
+        fs.writeFile("data64.html",html,'utf8',(err) => {
           if (err) throw err;  
         });
         
