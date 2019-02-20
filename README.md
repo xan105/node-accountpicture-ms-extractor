@@ -1,7 +1,7 @@
 Extracts image files from an *.accountpicture-ms* file.<br/>
 
 Promise will return an object containing a buffer for each file.<br/>
-You can then save the buffer to a file or convert it to base64."<br/>
+You can then save the buffer to a file or convert it to base64.<br/>
 
 .accountpicture-ms file
 -----------------------
