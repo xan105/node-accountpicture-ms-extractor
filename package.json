@@ -1,6 +1,6 @@
 {
   "name": "accountpicture-ms-extractor",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Extracts image files from an .accountpicture-ms file. Promise will return an object containing a buffer for each file. You can then save the buffer to a file or convert it to base64.",
   "main": "index.js",
   "directories": {
