@@ -1,7 +1,7 @@
 {
   "name": "accountpicture-ms-extractor",
-  "version": "1.0.1",
-  "description": "Extracts image files from an .accountpicture-ms file.\\nPromise will return an object containing a buffer for each file.\\nYou can then save the buffer to a file or convert it to base64.",
+  "version": "1.0.2",
+  "description": "Extracts image files from an .accountpicture-ms file. Promise will return an object containing a buffer for each file. You can then save the buffer to a file or convert it to base64.",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -15,7 +15,7 @@
     "url": "git+https://github.com/xan105/node-accountpicture-ms-extractor.git"
   },
   "keywords": [
-    "accountpicture-ms"
+    "accountpicture-ms, avatar, profile, picture, windows"
   ],
   "author": "Anthony Beaumont",
   "license": "MIT",
