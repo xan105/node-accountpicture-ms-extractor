@@ -15,7 +15,7 @@
     "url": "git+https://github.com/xan105/node-accountpicture-ms-extractor.git"
   },
   "keywords": [
-    "accountpicture-ms, avatar, profile, picture, windows"
+    "accountpicture-ms", "avatar", "profile", "picture", "windows"
   ],
   "author": "Anthony Beaumont",
   "license": "MIT",
