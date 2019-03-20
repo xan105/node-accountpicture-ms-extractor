@@ -1,2 +1,3 @@
 test/dump/*.jpeg
 test/dump/*.html
+cli/output/

@@ -1,0 +1,2 @@
+@echo off
+%~dp0rcedit-x64.exe %userprofile%\.pkg-cache\v2.5\fetched-v10.4.1-win-x64 --set-icon %~dp0icon.ico --set-file-version "1.0.0" --set-product-version "1.0.0" --set-version-string "CompanyName" "Xan" --set-version-string "ProductName" "accountpicture-ms-extractor CLI" --set-version-string "FileDescription" "accountpicture-ms-extractor CLI" --set-version-string "OriginalFilename" "accountpicture-ms-extractor.exe" --set-version-string "InternalName" "accountpicture-ms-extractor-cli" --set-version-string "LegalCopyright" "Copyright 2019 Xan."
