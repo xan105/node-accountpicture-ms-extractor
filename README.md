@@ -21,7 +21,7 @@ NB: There can be more than one *.accountpicture-ms* file within the folder.
 **Update:**
 There is now a new .accountpicture-ms file with 2 PNG files embedded.
   - 'small' 96*96 
-  - 'big' original file *upscaled* to 448*448
+  - 'big' original file **upscaled** to 448*448
 
 This module will now try to extract png files first then fallback to jpg if it failed.  
 
