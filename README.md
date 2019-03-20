@@ -19,7 +19,7 @@ NB: There can be more than one *.accountpicture-ms* file within the folder.
 <hr />
 
 **Update:**
-There is now an new .accountpicture-ms file with 2 PNG files embedded.
+There is now a new .accountpicture-ms file with 2 PNG files embedded.
   - 'small' 96*96 
   - 'big' original file *upscaled* to 448*448
 
