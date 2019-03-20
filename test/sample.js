@@ -2,20 +2,26 @@
 
 const fs = require('fs');
 const path = require('path');
-const glob = require("glob");
 const accountms = require(require.resolve('../index.js'));
 
-const dirPath = path.join(process.env.APPDATA,"Microsoft/Windows/AccountPictures");
+const example_jpg = "./sample/a75b9283298d0b69.accountpicture-ms"; //old format
+const example_png = "./sample/8d2cbe59176c6627.accountpicture-ms"; //new format
 
-glob("*.accountpicture-ms", {cwd:dirPath, nodir: true, absolute: true}, function (err, files) {
-  if (err) throw err;
+accountms(example_jpg).then((extracted) => {
+  dump(extracted,"jpeg");
+}).catch((err) => {
+  console.error(err);
+});
 
-  for (let file of files) {
-  
-    accountms(file)
-      .then((extracted) => {
+accountms(example_png).then((extracted) => {
+  dump(extracted,"png");
+}).catch((err) => {
+  console.error(err);
+});
+           
+function dump(extracted,ext) {
 
-        const filename = path.parse(file).name;
+        const filename = (ext === "jpeg") ? path.parse(example_jpg).name : path.parse(example_png).name;
 
         console.log(`Extracted ${filename}`);
 
@@ -40,12 +46,4 @@ glob("*.accountpicture-ms", {cwd:dirPath, nodir: true, absolute: true}, function
         fs.writeFile(path.resolve(__dirname,`dump/${filename}-big.${extracted.type}`),extracted.big,(err) => {
           if (err) throw err;  
         });
-      
-      
-      })
-      .catch((err) => {
-          console.error(err);
-      });
-
-  }
-});
+}
