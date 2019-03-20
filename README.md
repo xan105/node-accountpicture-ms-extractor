@@ -16,12 +16,14 @@ Both files have a JPEG and JFIF header.
 
 NB: There can be more than one *.accountpicture-ms* file within the folder.
 
-Update:
+<hr />
+
+**Update:**
 There is now an new .accountpicture-ms file with 2 PNG files embedded.
   - 'small' 96*96 
   - 'big' original file *upscaled* to 448*448
 
-This module will try to extract png files then fallback to jpg if it failed.  
+This module will now try to extract png files first then fallback to jpg if it failed.  
 
 Installing
 ==========
@@ -30,14 +32,15 @@ NPM: <br/>
 
 Usage
 =====
-Extracts image files (small and big) from specified *.accountpicture-ms* file.<br/>
 Promise returns an object
+```js
 {
   small : Buffer,
   big : Buffer,
   type: String // "png" or "jpeg"
 }
-
+```
+Extracts image files (small and big) from specified *.accountpicture-ms* file.
 ```js
 const accountms = require('accountpicture-ms-extractor');
 accountms(filePath)
