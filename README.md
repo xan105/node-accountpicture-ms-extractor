@@ -12,18 +12,15 @@ There are 2 PNG or JPEG _(old format)_ image files embedded within this file:
 - Lowres: resolution of 96*96 
 - Highres: original file **upscaled** to 448*448 for PNG and squarred aspect-ratio with the original resolution of the file you used for your account picture for JPEG.  
 
+This module tries to extract png files first then fallback to jpg. 
+
 NB: 
   - For JPEG both files have a JPEG and JFIF header.
   - There can be more than one *.accountpicture-ms* file within the folder.
 
-<hr />
-
-This module tries to extract png files first then fallback to jpg. 
-
 Installing
 ==========
-NPM: <br/>
-`$ npm i accountpicture-ms-extractor`
+`npm i accountpicture-ms-extractor`
 
 Usage
 =====
