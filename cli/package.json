@@ -1,18 +1,38 @@
 {
   "name": "accountpicture-ms-extractor-cli",
   "description": "Extracts image files from an .accountpicture-ms file.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "scripts": {
-    "start": "node watchdog.js",
     "clean": "npm prune --production"
   },
-  "author": "Xan",
+  "os": [
+    "win32"
+  ],
+  "engines": {
+    "node": ">=0.12"
+  },
+  "author": {
+    "name": "Anthony Beaumont",
+    "email": "dev.xan105@outlook.be",
+    "url": "https://xan105.com/"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xan105/node-accountpicture-ms-extractor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xan105/node-accountpicture-ms-extractor/issues"
+  },
+  "homepage": "https://github.com/xan105/node-accountpicture-ms-extractor#readme",
   "dependencies": {
-    "accountpicture-ms-extractor": "^1.1.0",
-    "fast-glob": "^2.2.6",
-    "minimist": "^1.2.0",
-    "mkdirp": "^0.5.1"
+    "@xan105/fs": "git+https://github.com/xan105/node-fs.git",
+    "accountpicture-ms-extractor": "^1.2.1",
+    "fast-glob": "^3.2.4",
+    "minimist": "^1.2.5"
+  },
+  "devDependencies": {
+    "pkg": "^4.4.0"
   }
 }

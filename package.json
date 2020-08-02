@@ -1,26 +1,49 @@
 {
   "name": "accountpicture-ms-extractor",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "description": "Extracts image files from an .accountpicture-ms file. Promise will return an object containing a buffer for each file. You can then save the buffer to a file or convert it to base64.",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
+  "type": "module",
+  "main": "index.cjs",
+  "exports": {
+    "import": "./esm.mjs",
+    "require": "./index.cjs"
+  },
+  "engines": {
+    "node": ">=0.12"
   },
   "scripts": {
-    "start": "node index.js",
-    "test": "node test/test.js"
+    "lint": "npx eslint --ignore-path .gitignore ./**/*.{cjs,mjs}",
+    "build-cli": "call .\\cli\\build.cmd",
+    "test": "node test/test.cjs",
+    "test-sample": "node test/sample.cjs"
   },
+  "keywords": [
+    "accountpicture-ms",
+    "avatar",
+    "profile",
+    "picture",
+    "windows",
+    "jpg",
+    "jpeg",
+    "png"
+  ],
+  "author": {
+    "name": "Anthony Beaumont",
+    "email": "dev.xan105@outlook.be",
+    "url": "https://xan105.com/"
+  },
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xan105/node-accountpicture-ms-extractor.git"
   },
-  "keywords": [
-    "accountpicture-ms", "avatar", "profile", "picture", "windows", "jpg", "jpeg", "png"
-  ],
-  "author": "Anthony Beaumont",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/xan105/node-accountpicture-ms-extractor/issues"
   },
-  "homepage": "https://github.com/xan105/node-accountpicture-ms-extractor#readme"
+  "homepage": "https://github.com/xan105/node-accountpicture-ms-extractor#readme",
+  "devDependencies": {
+    "@xan105/fs": "github:xan105/node-fs",
+    "eslint": "^7.6.0",
+    "fast-glob": "^3.2.4"
+  }
 }

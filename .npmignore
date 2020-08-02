@@ -1,2 +1,4 @@
 test/
 cli/
+.github/
+.eslintrc.json

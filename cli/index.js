@@ -1,44 +1,26 @@
-'use strict';
+"use strict";
 
-const fs = require('fs');
-const path = require('path');
-const mkdirp = require('mkdirp');
-const glob = require('fast-glob');
-const args = require('minimist')(process.argv);
-const accountms = require('accountpicture-ms-extractor');
+const fs = require("@xan105/fs");
+const path = require("path");
+const glob = require("fast-glob");
+const args = require("minimist")(process.argv);
+const accountms = require("accountpicture-ms-extractor");
 
 const msdir = path.join(process.env.APPDATA,"Microsoft/Windows/AccountPictures");
 
-var app = {
+const app = {
     usage: function(){
       console.log(`Usage: accountpicture-ms-extractor.exe --file "path/to/.accountpicture-ms" --dir "extract/to/dir"`);
     },
-    writeFile: function(file, data, options) {
-      return new Promise((resolve,reject) => {
-          mkdirp(path.parse(file).dir, function (err) { 
-              if (err) {
-                return reject(err);
-              } else {
-                  fs.writeFile(file, data, options, function (err) {
-                      if (err) {
-                        return reject(err);
-                      } else {
-                        return resolve(file);
-                      }
-                  });    
-             }
-          });  
-      });      
-    },
     extract: function(file, dir = path.join(path.dirname(process.execPath))){
-       accountms(file).then((extracted) => {
+       accountms(file).then((img) => {
                       
-           this.writeFile(path.join(dir,`${path.parse(file).name}-small.${extracted.type}`),extracted.small)
-                .then( file => { console.log(`Written ${path.parse(file).base}`) })
-                .catch( err => { console.error(err) });
-           this.writeFile(path.join(dir,`${path.parse(file).name}-big.${extracted.type}`),extracted.big)
-                .then( file => { console.log(`Written ${path.parse(file).base}`) })
-                .catch( err => { console.error(err) });
+           fs.writeFile(path.join(dir,`${path.parse(file).name}-lowres.${img.type}`),img.lowres)
+                .then( file => console.log(`Written ${path.parse(file).base}`) )
+                .catch( err => console.error(err) );
+           fs.writeFile(path.join(dir,`${path.parse(file).name}-highres.${img.type}`),img.highres)
+                .then( file => console.log(`Written ${path.parse(file).base}`) )
+                .catch( err => console.error(err) );
                 
        }).catch((err)=>{
           console.error(err);

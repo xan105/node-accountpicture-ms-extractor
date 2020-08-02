@@ -1,3 +1,4 @@
-test/dump/*.jpeg
-test/dump/*.html
+test/dump/
+node_modules/
+cli/node_modules
 cli/output/
