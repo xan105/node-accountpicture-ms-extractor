@@ -1,12 +1,12 @@
 {
   "name": "accountpicture-ms-extractor",
-  "version": "1.2.2",
+  "version": "1.2.4",
   "description": "Extracts image files from an .accountpicture-ms file. Promise will return an object containing a buffer for each file. You can then save the buffer to a file or convert it to base64.",
   "type": "module",
-  "main": "index.cjs",
+  "main": "./lib/index.cjs",
   "exports": {
-    "import": "./esm.mjs",
-    "require": "./index.cjs"
+    "import": "./lib/esm.mjs",
+    "require": "./lib/index.cjs"
   },
   "engines": {
     "node": ">=0.12"
@@ -42,7 +42,7 @@
   },
   "homepage": "https://github.com/xan105/node-accountpicture-ms-extractor#readme",
   "devDependencies": {
-    "@xan105/fs": "github:xan105/node-fs",
+    "@xan105/fs": "^1.2.0",
     "eslint": "^7.6.0",
     "fast-glob": "^3.2.4"
   }

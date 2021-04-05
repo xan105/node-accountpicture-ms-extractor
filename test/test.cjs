@@ -3,7 +3,7 @@
 const fs = require("@xan105/fs");
 const path = require("path");
 const glob = require("fast-glob");
-const accountms = require("../index.cjs");
+const accountms = require("../lib/index.cjs");
 
 const dirPath = path.join(process.env.APPDATA,"Microsoft/Windows/AccountPictures");
 

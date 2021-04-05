@@ -2,7 +2,7 @@
 
 const fs = require("@xan105/fs");
 const path = require("path");
-const accountms = require("../index.cjs");
+const accountms = require("../lib/index.cjs");
 
 const example = {
   jpg: path.resolve(__dirname, "sample/a75b9283298d0b69.accountpicture-ms"), //old format
