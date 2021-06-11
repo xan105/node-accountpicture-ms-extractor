@@ -4,6 +4,7 @@
   "description": "Extracts image files from an .accountpicture-ms file. Promise will return an object containing a buffer for each file. You can then save the buffer to a file or convert it to base64.",
   "type": "module",
   "exports": "./lib/esm.mjs",
+  "types": "./types/esm.d.ts",
   "engines": {
     "node": ">=0.14"
   },
