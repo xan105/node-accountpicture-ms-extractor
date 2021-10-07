@@ -1,11 +1,6 @@
 import * as fs from "@xan105/fs";
 import path from "path";
 import extract from "../lib/esm.js";
-
-const sample = {
-  jpg: "./sample/a75b9283298d0b69.accountpicture-ms", //old format
-  png: "./sample/8d2cbe59176c6627.accountpicture-ms" //new format
-};
          
 async function dump(filePath) {
 
@@ -24,9 +19,10 @@ async function dump(filePath) {
   await fs.writeFile(`./dump/${filename}/lowres.${lowres.format}`,lowres.buffer).catch(console.error);
 }
 
-(async()=>{
+const sample = {
+  jpg: "./sample/a75b9283298d0b69.accountpicture-ms", //old format
+  png: "./sample/8d2cbe59176c6627.accountpicture-ms" //new format
+};
 
-  await dump(sample.jpg);
-  await dump(sample.png);
-
-})().catch(console.error);
+await dump(sample.jpg);
+await dump(sample.png);
