@@ -5,21 +5,23 @@ Extracts image files embedded within an `.accountpicture-ms` file.
 
 ## .accountpicture-ms file
 
-Located in `%appdata%/Microsoft/Windows/AccountPictures` (Windows 8, 10) and `%appdata%/Microsoft/Windows/Account Pictures` (Windows 11).
+Located in 
+- `%appdata%/Microsoft/Windows/AccountPictures` (Windows 8, 10) 
+- `%appdata%/Microsoft/Windows/Account Pictures` (Windows 11).
 
 There are either 2 PNG or JPEG image files:
 
-- Lowres: 96*96 
-- Highres: usually 448*448 _(upscaled if necessary)_.  
+- Lowres: 96x96 
+- Highres: usually 448x448 _(upscaled if necessary)_.  
 
 From my experience: Microsoft seems to be changing the format, resolution _(only for highres)_, compression ratio _(if JPEG)_, etc... used for the embedded images over time.
 
-As of this writing they are using JPEG: 96*96 and 448*448.
+As of this writing they are using JPEG: 96x96 and 448x448.
 But not that long ago they were using PNG and before that JPEG highres was the original resolution of the file you used for your account's picture.
 
 NB: 
   - For JPEG both files have a JPEG and JFIF header.
-  - There can be more than one `.accountpicture-ms` file in the mentionned folder.
+  - There can be more than one `.accountpicture-ms` file in the mentionned folders.
   - The extension `.accountpicture-ms` is hidden by the explorer even when set to display file extension.
   - The current used `{SourceId}.accountpicture-ms` can be determined via the registry key `HKCU/Software/Microsoft/Windows/CurrentVersion/AccountPicture/SourceId`
 
@@ -59,7 +61,7 @@ Previous version(s) are CommonJS (CJS) with an ESM wrapper.
 
 ## Default export
 
-#### `(filePath: string): Promise<obj>;`
+#### `(filePath: string): Promise<obj>`
 
 Extracts image files embedded within an `.accountpicture-ms` file.
 
