@@ -3,18 +3,18 @@ About
 
 Extracts image files embedded within an `.accountpicture-ms` file.
 
-## .accountpicture-ms file
+### .accountpicture-ms file
 
 Located in 
-- `%appdata%/Microsoft/Windows/AccountPictures` (Windows 8, 10) 
-- `%appdata%/Microsoft/Windows/Account Pictures` (Windows 11).
+- `%appdata%/Microsoft/Windows/AccountPictures` _(Windows 8, 10)_
+- `%appdata%/Microsoft/Windows/Account Pictures` _(Windows 11)_
 
 There are either 2 PNG or JPEG image files:
 
 - Lowres: 96x96 
 - Highres: usually 448x448 _(upscaled if necessary)_.  
 
-From my experience: Microsoft seems to be changing the format, resolution _(only for highres)_, compression ratio _(if JPEG)_, etc... used for the embedded images over time.
+From my experience: Microsoft seems to be changing the format, resolution _(only for highres)_, compression ratio _(If JPEG)_, etc... used for the embedded images over time.
 
 As of this writing they are using JPEG: 96x96 and 448x448.
 But not that long ago they were using PNG and before that JPEG highres was the original resolution of the file you used for your account's picture.
@@ -47,6 +47,14 @@ const base64 = highres.base64();
 console.log(base64);
 // "data:image/jpeg;charset=utf-8;base64,....."
 ```
+
+I'm actually using this in [`xan105/Achievement Watcher`](https://github.com/xan105/Achievement-Watcher) to display user's profile picture in the app (_Electron_).<br />
+Using the `.base64()` method you can read and display the picture without any prior extraction to disk.
+
+<p align="center">
+  <img src="https://github.com/xan105/node-accountpicture-ms-extractor/raw/master/screenshot/electron.png"><br />
+  <em>accountpicture-ms as avatar</em>
+</p>
 
 Install
 =======
