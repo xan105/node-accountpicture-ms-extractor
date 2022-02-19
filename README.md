@@ -42,7 +42,7 @@ const { highres, lowres } = await extract(filePath);
 import { writeFile } from "node:fs/promises";
 await writeFile(`./${sourceID}.${highres.format}`, highres.buffer);
 
-//as data64 
+//data url  
 const base64 = highres.base64();
 console.log(base64);
 // "data:image/jpeg;charset=utf-8;base64,....."
@@ -79,12 +79,14 @@ Promise returns the following object:
   lowres : {
     buffer: Buffer, //file as a Buffer
     format: string, //file format "png" or "jpeg"
-    base64(): string //return file as a base64 encoded string
+    base64(): string //return file as a base64 encoded string,
+    blob(): Blob //return file as a Blob
   },
   highres: {
     buffer: Buffer,
     format: string,
-    base64(): string
+    base64(): string,
+    blob(): Blob
   }
 }
 ```

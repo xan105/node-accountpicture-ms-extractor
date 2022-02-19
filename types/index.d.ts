@@ -1,7 +1,8 @@
 declare interface Image {
   buffer: Buffer,
   format: string,
-  base64(): string
+  base64(): string,
+  blob(): Blob
 }
 
 declare interface AccountPicture {
