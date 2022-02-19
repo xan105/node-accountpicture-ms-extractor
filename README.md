@@ -79,7 +79,7 @@ Promise returns the following object:
   lowres : {
     buffer: Buffer, //file as a Buffer
     format: string, //file format "png" or "jpeg"
-    base64(): string //return file as a base64 encoded string,
+    base64(): string, //return file as a base64 encoded string
     blob(): Blob //return file as a Blob
   },
   highres: {
