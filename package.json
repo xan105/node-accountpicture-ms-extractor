@@ -1,18 +1,17 @@
 {
   "name": "accountpicture-ms-extractor",
   "version": "2.0.0",
-  "description": "Extracts image files from an .accountpicture-ms file. Promise will return an object containing a buffer for each file. You can then save the buffer to a file or convert it to base64.",
+  "description": "Extracts image files embedded within an .accountpicture-ms file",
   "type": "module",
-  "exports": "./lib/esm.mjs",
-  "types": "./types/esm.d.ts",
+  "exports": "./lib/index.js",
+  "types": "./types/index.d.ts",
   "engines": {
-    "node": ">=0.14"
+    "node": ">=16.0.0"
   },
   "scripts": {
-    "lint": "npx eslint --ignore-path .gitignore ./**/*.{cjs,mjs}",
-    "build-cli": "call .\\cli\\build.cmd",
-    "test": "node test/test.cjs",
-    "test-sample": "node test/sample.cjs"
+    "lint": "npx eslint --ignore-path .gitignore ./**/*.{js,mjs}",
+    "test": "node test/dump_from_appdata.js",
+    "test-sample": "node test/dump_from_sample.js"
   },
   "keywords": [
     "accountpicture-ms",
@@ -38,9 +37,14 @@
     "url": "https://github.com/xan105/node-accountpicture-ms-extractor/issues"
   },
   "homepage": "https://github.com/xan105/node-accountpicture-ms-extractor#readme",
+  "dependencies": {
+    "@xan105/buffer": "^1.0.0",
+    "@xan105/error": "^1.1.0",
+    "@xan105/is": "^2.1.1"
+  },
   "devDependencies": {
-    "@xan105/fs": "^1.2.0",
-    "eslint": "^7.6.0",
-    "fast-glob": "^3.2.4"
+    "@xan105/fs": "^2.0.1",
+    "eslint": "^8.9.0",
+    "fast-glob": "^3.2.11"
   }
 }

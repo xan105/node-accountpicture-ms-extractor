@@ -1,76 +1,80 @@
-Extracts image files from an *.accountpicture-ms* file.<br/>
+About
+=====
 
-Promise will return an object containing a buffer for each file (highres and lowres).<br/>
-You can then save the buffer to a file or convert it to base64.<br/>
+Extracts image files embedded within an `.accountpicture-ms` file.
 
-.accountpicture-ms file
-=======================
-Located in `%appdata%/Microsoft/Windows/AccountPictures` (Windows 8, 8.1, 10).
+## .accountpicture-ms file
 
-There are 2 PNG or JPEG _(old format)_ image files embedded within this file:
+Located in `%appdata%/Microsoft/Windows/AccountPictures` (Windows 8, 10) and `%appdata%/Microsoft/Windows/Account Pictures` (Windows 11).
 
-- Lowres: resolution of 96*96 
-- Highres: original file **upscaled** to 448*448 for PNG and squarred aspect-ratio with the original resolution of the file you used for your account picture for JPEG.  
+There are either 2 PNG or JPEG image files:
 
-This module tries to extract png files first then fallback to jpg. 
+- Lowres: 96*96 
+- Highres: usually 448*448 _(upscaled if necessary)_.  
+
+From my experience: Microsoft seems to be changing the format, resolution _(only for highres)_, compression ratio _(if JPEG)_, etc... used for the embedded images over time.
+
+As of this writing they are using JPEG: 96*96 and 448*448.
+But not that long ago they were using PNG and before that JPEG highres was the original resolution of the file you used for your account's picture.
 
 NB: 
   - For JPEG both files have a JPEG and JFIF header.
-  - There can be more than one *.accountpicture-ms* file within the folder.
-
-Installing
-==========
-`npm i accountpicture-ms-extractor`
-
-Usage
-=====
-Promise returns an object
-```js
-{
-  lowres : Buffer,
-  highres : Buffer,
-  type: String // "png" or "jpeg"
-}
-```
-Extracts image files (highres and lowres) from specified *.accountpicture-ms* file.
-```js
-const accountms = require('accountpicture-ms-extractor');
-accountms(filePath)
-  .then((img) => {
-     /*
-     img = {lowres: Buffer, highres: Buffer, type: String};
-     
-     Do something with extracted files : img.lowres & img.highres
-     
-     */
-  })
-  .catch((err) => {
-     console.error(err);
-  });
-```
+  - There can be more than one `.accountpicture-ms` file in the mentionned folder.
+  - The extension `.accountpicture-ms` is hidden by the explorer even when set to display file extension.
+  - The current used `{SourceId}.accountpicture-ms` can be determined via the registry key `HKCU/Software/Microsoft/Windows/CurrentVersion/AccountPicture/SourceId`
 
 Example
 =======
 
 ```js
-const fs = require('fs');
-const accountms = require('accountpicture-ms-extractor');
+import extract from "accountpicture-ms-extractor";
+import { join } from "node:path";
 
-accountms(file)
-  .then((img) => {
-      
-    //write to file
-    fs.writeFile(`lowres.${img.type}`,img.lowres,(err) => { console.error(err) });
-    fs.writeFile(`highres.${img.type}`,img.highres,(err) => { console.error(err) });
-        
-    //as data64
-    const html = `
-     <img src="data:image/${img.type};charset=utf-8;base64,${extracted.lowres.toString('base64')}" alt="Lowres 96*96" />
-     <img src="data:image/${img.type};charset=utf-8;base64,${extracted.highres.toString('base64')}" alt="Highres" />`;
-        
-    fs.writeFile("data64.html",html,'utf8',(err) => { console.error(err) });
-        
-  }).catch((err) => {
-    console.error(err);
- });
+const sourceID = "37a1276dd7295e1a";
+const dirPath = join(process.env.APPDATA,"Microsoft/Windows/AccountPictures");
+const filePath = join(dirPath,`${sourceID}.accountpicture-ms`);
+
+const { highres, lowres } = await extract(filePath);
+
+//save to file
+import { writeFile } from "node:fs/promises";
+await writeFile(`./${sourceID}.${highres.format}`, highres.buffer);
+
+//as data64 
+const base64 = highres.base64();
+console.log(base64);
+// "data:image/jpeg;charset=utf-8;base64,....."
+```
+
+Install
+=======
+
+`npm install accountpicture-ms-extractor`
+
+API
+===
+
+⚠️ This module is only available as an ECMAScript module (ESM) starting with version 2.0.0.<br />
+Previous version(s) are CommonJS (CJS) with an ESM wrapper.
+
+## Default export
+
+#### `(filePath: string): Promise<obj>;`
+
+Extracts image files embedded within an `.accountpicture-ms` file.
+
+Promise returns the following object:
+```ts
+{
+  lowres : {
+    buffer: Buffer, //file as a Buffer
+    format: string, //file format "png" or "jpeg"
+    base64(): string //return file as a base64 encoded string
+  },
+  highres: {
+    buffer: Buffer,
+    format: string,
+    base64(): string
+  }
+}
 ```

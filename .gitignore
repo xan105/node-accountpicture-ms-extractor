@@ -1,4 +1,3 @@
-test/dump/
 node_modules/
-cli/node_modules
-cli/output/
+.nyc_output/
+test/dump/

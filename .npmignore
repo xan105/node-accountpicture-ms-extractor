@@ -1,4 +1,4 @@
-test/
-cli/
 .github/
 .eslintrc.json
+test/
+.nyc_output/
