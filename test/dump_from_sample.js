@@ -21,8 +21,13 @@ async function dump(filePath) {
 
 const sample = {
   jpg: "./sample/a75b9283298d0b69.accountpicture-ms",
-  png: "./sample/8d2cbe59176c6627.accountpicture-ms"
+  png: "./sample/8d2cbe59176c6627.accountpicture-ms",
+  fake: "./sample/blank.accountpicture-ms"
 };
 
 await dump(sample.jpg);
 await dump(sample.png);
+await dump(sample.fake).catch((err)=>{
+  console.error(err);
+  console.log("-> Expected error (this is normal).");
+});
