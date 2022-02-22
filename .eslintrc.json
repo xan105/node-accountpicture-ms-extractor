@@ -21,5 +21,6 @@
       "no-eval": "error",
       "require-await": "warn",
       "no-useless-escape": "warn"
-    }
+    },
+    "ignorePatterns": ["docs/**/*.js"]
 }
