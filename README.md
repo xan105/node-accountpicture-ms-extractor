@@ -61,7 +61,9 @@ Using the `.base64()` method you can read and display the picture without any pr
 Install
 =======
 
-`npm install accountpicture-ms-extractor`
+```
+npm install accountpicture-ms-extractor
+```
 
 API
 ===
