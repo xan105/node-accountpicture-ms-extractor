@@ -1,6 +1,6 @@
 {
   "name": "accountpicture-ms-extractor",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Extracts image files embedded within an .accountpicture-ms file",
   "type": "module",
   "exports": "./lib/index.js",
@@ -10,8 +10,7 @@
   },
   "scripts": {
     "lint": "npx eslint --ignore-path .gitignore ./**/*.{js,mjs}",
-    "test": "node test/dump_from_appdata.js",
-    "test-sample": "node test/dump_from_sample.js"
+    "websrv": "websrv"
   },
   "keywords": [
     "accountpicture-ms",
@@ -38,12 +37,13 @@
   },
   "homepage": "https://github.com/xan105/node-accountpicture-ms-extractor#readme",
   "dependencies": {
-    "@xan105/buffer": "^1.0.1",
+    "@xan105/buffer": "^1.0.2",
     "@xan105/error": "^1.1.1",
-    "@xan105/is": "^2.1.2"
+    "@xan105/is": "^2.2.0"
   },
   "devDependencies": {
-    "@xan105/fs": "^2.0.2",
+    "@xan105/fs": "^2.0.3",
+    "@xan105/qwebsrv": "^1.0.1",
     "eslint": "^8.9.0",
     "fast-glob": "^3.2.11"
   }
