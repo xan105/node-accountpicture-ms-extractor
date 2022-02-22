@@ -1,0 +1,222 @@
+/* reset */
+html, body, ul, ol, li, p { margin: 0; padding: 0; }
+*:focus{ outline: none; }
+img { user-drag: none; }
+li { list-style: none; }
+html { user-select: none; }
+
+/* custom font */
+@font-face {
+  font-family: 'Open-Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open-Sans'), local('Open Sans'), local('OpenSans'), url(../font/opensans/opensans.woff2) format('woff2'), url(../font/opensans/opensans.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Open-Sans-Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open-Sans-Bold'), local('Open Sans Bold'), local('OpenSans-bold'), url(../font/opensans/opensans-bold.woff2) format('woff2'), url(../font/opensans/opensans-bold.woff) format('woff');
+}
+
+/* style */
+body {
+  font-family: 'Open-Sans';
+  font-size: 16px;
+  color: #8290a1;
+  background: #191d23;
+}
+
+main {
+  width: 900px;
+  margin: 0 auto;
+  padding: 10px 20px 10px 20px;
+}
+
+main span.highlight {
+  font-family: 'Open-Sans-Bold';
+  color: #c4ccdf;
+}
+
+#disclaimer {
+  background: linear-gradient(180deg,#2a3139,#181d23);
+  border-left: 1px solid #20252b;
+  padding: 20px 40px;
+  margin: 20px 0;
+  border-radius: 4px;
+}
+
+#disclaimer p {
+  line-height: 20px;
+}
+
+#disclaimer li {
+  list-style-type: disc;
+  margin: 5px 0;
+  margin-left: 20px;
+}
+
+#disclaimer li span.boxed {
+  background: #2a3344;
+  color: #a5b3c5;
+  display: inline-block;
+  padding: 4px 8px;
+  user-select: text;
+}
+
+#drop-zone {
+  border: 3px dashed #404b58;
+  padding: 10px;
+  text-align: center;
+}
+
+#drop-zone p { 
+  margin-bottom: 10px; 
+}
+
+#drop-zone.hover { 
+  border: 3px dashed #c4ccdf; 
+}
+
+#file-select {
+  display: none;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: #2980b9;
+  border-radius: 2px;
+  color: #c4ccdf;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  color: #fff;
+}
+
+#dialog {
+  display: none; 
+}
+
+#dialog .backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+#dialog .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  min-width: 360px;
+  min-height: 306px;
+  padding: 40px 80px;
+  border-radius: 15px;
+  background: #3e4854;
+  color: #7c8288;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+
+#dialog .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#dialog .picture {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  margin-bottom: 40px;
+}
+
+.avatar {
+  display: inline-block;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+  border: solid white 2px;
+  margin: 0 20px;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+
+.avatar.low{
+	width: 48px;
+	height: 48px; 
+}
+
+.avatar.high{
+	width: 224px;
+	height: 224px;
+}
+
+#download {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#download.active{
+  pointer-events: auto;
+  visibility: visible;
+}
+
+footer {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+footer p {
+  display: block;
+  background: #283040;
+  padding: 10px 20px;
+  border-radius: 2px;
+  border: solid #515d6a 1px;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  color: #9197a5;
+}
+
+footer a {
+  color: #c4ccdf !important;
+  text-decoration: underline;
+}
+
+footer a:visited {
+  color: inherit;
+}
+
+/* https://tholman.com/github-corners/ */
+.github-corner svg {
+  fill:#505d6a; 
+  color:#c4ccdf; 
+  position: absolute; 
+  top: 0; 
+  border: 0; 
+  right: 0;
+}
+
+.github-corner .octo-arm {
+  transform-origin: 130px 106px;
+}
+
+.github-corner:hover .octo-arm { 
+  animation:octocat-wave 560ms ease-in-out
+}
+
+@keyframes octocat-wave{ 
+  0%,100%{ transform:rotate(0) }
+  20%,60%{ transform:rotate(-25deg) }
+  40%,80%{ transform:rotate(10deg) }
+}
