@@ -36,10 +36,24 @@
     "url": "https://github.com/xan105/node-accountpicture-ms-extractor/issues"
   },
   "homepage": "https://github.com/xan105/node-accountpicture-ms-extractor#readme",
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/xan105"
+    },
+    {
+      "type": "paypal",
+      "url": "https://www.paypal.me/xan105"
+    },
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/xan105"
+    }
+  ],
   "dependencies": {
     "@xan105/buffer": "^1.0.3",
-    "@xan105/error": "^1.2.0",
-    "@xan105/is": "^2.4.0"
+    "@xan105/error": "^1.4.2",
+    "@xan105/is": "^2.6.0"
   },
   "devDependencies": {
     "@xan105/fs": "^2.0.4",
